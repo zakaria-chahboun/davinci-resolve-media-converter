@@ -1,0 +1,87 @@
+#!/usr/bin/env bash
+
+author="ZAKARIA CHAHBOUN 11/01/2020"
+welcome="This script help you to convert Media to be accepted correctly by DaVinci Resolve!"
+
+listFormats=('mp4' 'mp3' 'mpa' 'm4a' 'm4v' 'mkv' 'flv' 'avi' 'mov' 'wav' 'ogg' 'wma')
+
+nargument=$#
+
+x=$1
+output="${x%.*}"
+
+command -v ffmpeg >/dev/null 2>&1 || { echo >&2 "' ffmpeg ' not found! You have to install it."; exit 1; }
+
+if [[ "$nargument" == 1 ]]; then
+    if [[ $1 == "--help" || $1 == "-h" ]]; then
+        echo "$welcome"
+        echo "----- How to use -----"
+        echo "' davincimc YOUR_MEDIA_FILE --MODE '"
+        echo
+        echo "MODE 1: --video to convert any video format to (.MOV) and use it into DaVinci Resolve."
+        echo "MODE 2: --audio to extract any media format to (.wav) and use it into DaVinci Resolve."
+        echo
+        echo "------ Example ------"
+        echo "davincimc ./mymedia/podcast.mp4 --video"
+        echo "' The new output Media File has the same name as your file in the same directory with (.move) extension. '"
+        echo
+        echo "-- Supported formats --"
+            for e in "${listFormats[@]}"; do
+                echo $e
+            done
+        echo
+        echo "$author"
+        exit
+    fi
+fi
+
+if [[ "$nargument" != 2 ]]; then
+
+echo "you have to do that in this way"
+echo "-----------------------------------"
+echo "' davincimc YOUR_MEDIA_FILE --MODE '"
+echo "-----------------------------------"
+echo "example: davincimc ./mymedia/podcast.mp4 --video"
+echo
+echo "run this command only with '--help' or '-h' to get help."
+exit
+fi
+
+if [[ ! -f $1 ]]; then
+    echo "'$1' is not a file!"
+    echo "run this command only with '--help' or '-h' to get help."
+    exit
+elif [[ $1 =~ ^.*.mp4$|^.*.mp3$|^.*.mpa$|^.*.m4a$|^.*.m4v$|^.*.mkv$|^.*.flv$|^.*.avi$|^.*.mov$|^.*.wav$|^.*.ogg$|^.*.wma$ ]]; then
+    if [[ $2 == "--video" ]]; then
+        echo "$1"
+        `ffmpeg -i "$1" -c:v dnxhd -profile:v dnxhr_hq -pix_fmt yuv422p -c:a pcm_s16le "$output.mov"`
+        clear
+        echo "*********** ALL IS DONE! ***********"
+        echo
+        echo "$output.mov"
+        echo
+        echo "************************************"
+    elif [[ $2 == "--audio" ]]; then
+        `ffmpeg -i "$1" -c:a pcm_s16le "$output.wav"`
+        clear
+        echo "*********** ALL IS DONE! ***********"
+        echo
+        echo "$output.wav"
+        echo
+        echo "************************************"
+    else
+        echo "We have only 2 modes: '--video' and '--audio'"
+        echo "run this command only with '--help' or '-h' to get help."
+    fi
+else
+    echo "not supported format!"
+    echo "run this command only with '--help' or '-h' to get help."
+    exit
+fi
+
+
+: '
+ffmpeg -i INPUT.mp4 -c:v dnxhd -profile:v dnxhr_hq -pix_fmt yuv422p -c:a pcm_s16le OUTPUT.mov
+
+ffmpeg -i INPUT.mp4 -c:a pcm_s16le OUTPUT.wav
+'
