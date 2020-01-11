@@ -21,6 +21,16 @@ davincimc ./mymedia/podcast.mp4 --video
 
 > **The new output Media File has the same name as your file, in the same directory with (new) extension.**
 
+### Help
+You can get help by using:
+```
+davincimc --help
+```
+or
+```
+davincimc -h
+```
+
 <img src="https://i.udemycdn.com/course/750x422/2373482_a71b_3.jpg" alt="davinci resolve logo"/>
 
 --------------
