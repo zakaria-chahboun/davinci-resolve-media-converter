@@ -1,6 +1,6 @@
-# Davinci Resolve Media Converter For LINUX!
+# Davinci Resolve Media Converter.
 
-***davincimc*** is a script, it help you to convert Media and imported into davinci resolve (15)!
+***davincimc*** is a script, it help you to convert Media and imported into davinci resolve (For Linux)!
 
 Dependency: you have to install **FFMPEG**.
 
