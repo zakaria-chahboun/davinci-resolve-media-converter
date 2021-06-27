@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+echo "------------ Installation of Davinci Resolve Media Converter (davincimc) ------------"
+echo
+echo "- copy davincimc to /usr/local/bin directory."
+
+chmod u+x ./davincimc
+mv ./davincimc /usr/local/bin
+
+echo
+echo "done!"
