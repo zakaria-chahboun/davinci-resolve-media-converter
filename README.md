@@ -1,25 +1,51 @@
 # Davinci Resolve Media Converter.
 
-***davincimc*** is a script, it help you to convert Media and imported into davinci resolve (For Linux)!
+***davincimc*** is a Linux script 🐧, it help you to convert Media and import it into davinci resolve. (for windows of Mac [click hare](#windows-and-mac))!
 
-Dependency: you have to install **FFMPEG**.
+## Dependency 🇲🇦.
+You have to install **FFMPEG**:
 
-### How to use
+- Debian/Ubuntu(PopOs,  LinuxMint, ElementaryOs, MxLinux...)
+```terminal
+sudo apt update
+sudo apt install ffmpeg
+```
+- Fedora
+```terminal
+sudo dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf -y install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+sudo dnf update
+sudo dnf install -y ffmpeg
+```
+- OpenSUSE
+```terminal
+sudo zypper install opi
+opi codecs
+```
+
+## How to use ?
 ```
 davincimc INPUT.mp4 --MODE
 ```
 
 ### We have two modes:
-- *--video*: to convert any video format to special (.MOV)
-- *--audio*: to extract any media format to special (.wav)
+- *--video*: to convert any video format to (.MOV)
+- *--audio*: to extract any media format to (.wav)
 
 
 ### Example:
 ```
-davincimc ./mymedia/podcast.mp4 --video
+davincimc ./mymedia/video.mp4 --video
+```
+```
+davincimc ./mymedia/podcast.mp4 --audio
+```
+```
+davincimc ./mymedia/podcast2.mp3 --audio
 ```
 
-> **The new output Media File has the same name as your file, in the same directory with (new) extension.**
+> **The new output Media File has the same name as your file, in the same directory with (the new) extension ✌.**
 
 ### Help
 You can get help by using:
@@ -34,7 +60,7 @@ davincimc -h
 <img src="https://i.udemycdn.com/course/750x422/2373482_a71b_3.jpg" alt="davinci resolve logo"/>
 
 --------------
-
+## Windows and Mac
 **if you are using Windows or Mac you have to do this manually!**
 
 **download FFMPEG for any os .. <a href='https://www.ffmpeg.org/download.html'> here </a>**
