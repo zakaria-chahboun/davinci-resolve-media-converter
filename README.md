@@ -23,6 +23,11 @@ sudo dnf install -y ffmpeg
 sudo zypper install opi
 opi codecs
 ```
+## Instalation
+Clone this reposotory or Download the latest [release version](https://github.com/zakaria-chahboun/davinci-resolve-media-converter/releases/tag/1.0).
+```terminal
+sudo ./install
+```
 
 ## How to use ?
 ```
