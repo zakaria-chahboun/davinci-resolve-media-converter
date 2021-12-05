@@ -1,6 +1,6 @@
 # Davinci Resolve Media Converter.
 
-***davincimc*** is a Linux script 🐧, it help you to convert Media and import it into davinci resolve. (for windows of Mac [click hare](#windows-and-mac))!
+***davincimc*** is a Linux script 🐧, it help you to convert Media and import it into davinci resolve.
 
 ## Dependency 🇲🇦.
 You have to install **FFMPEG**:
